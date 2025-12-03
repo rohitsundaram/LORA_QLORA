@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EcommerceOrderPayload",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "product_id": { "type": "integer", "minimum": 1 },
+    "quantity": { "type": "integer", "minimum": 1 },
+    "shipping": {
+      "type": "string",
+      "enum": ["standard", "express", "overnight"]
+    }
+  },
+  "required": ["product_id", "quantity", "shipping"]
+}
