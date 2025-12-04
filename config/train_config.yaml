@@ -1,0 +1,37 @@
+# Shared hyperparameters for matched LoRA vs QLoRA runs (edit paths before training).
+base_model: "Qwen/Qwen2.5-7B-Instruct"
+train_file: "data/instructions_train.jsonl"
+val_file: "data/instructions_val.jsonl"
+output_dir_lora: "artifacts/adapters_lora"
+output_dir_qlora: "artifacts/adapters_qlora"
+
+# Training (keep identical across runs except quantization path)
+max_seq_length: 2048
+per_device_train_batch_size: 2
+gradient_accumulation_steps: 8
+learning_rate: 2.0e-4
+num_train_epochs: 1
+warmup_ratio: 0.03
+logging_steps: 10
+save_steps: 200
+eval_steps: 200
+bf16: true
+gradient_checkpointing: true
+seed: 42
+
+# LoRA
+lora_r: 64
+lora_alpha: 128
+lora_dropout: 0.05
+target_modules:
+  - q_proj
+  - k_proj
+  - v_proj
+  - o_proj
+  - gate_proj
+  - up_proj
+  - down_proj
+
+# QLoRA (bitsandbytes)
+bnb_4bit_quant_type: "nf4"
+bnb_4bit_use_double_quant: true
