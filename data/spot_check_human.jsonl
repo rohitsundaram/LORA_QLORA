@@ -1,0 +1,10 @@
+{"id": "sc-01", "user": "Order 2 of product 501 with overnight shipping.", "notes": "Check JSON only; shipping must be overnight, qty 2, product_id 501."}
+{"id": "sc-02", "user": "I want express delivery for 15 units of item 8801.", "notes": "quantity 15, product_id 8801, shipping express."}
+{"id": "sc-03", "user": "Buy one (1) of SKU 42, standard shipping please.", "notes": "quantity 1; watch wording 'one'."}
+{"id": "sc-04", "user": "Ship 7x product 3000 standard.", "notes": "Informal multiplier; expect quantity 7."}
+{"id": "sc-05", "user": "Rush order: 4 of product 12.", "notes": "Ambiguous rush; model may pick express—flag if wrong vs your rubric."}
+{"id": "sc-06", "user": "Please order product_id 9 quantity 3 shipping overnight.", "notes": "Explicit field names in user text; should still output clean JSON."}
+{"id": "sc-07", "user": "Add 25 units of 44444 to cart, fastest option.", "notes": "Fastest → overnight expected; sanity check."}
+{"id": "sc-08", "user": "Standard shipping, 11 items, product 600.", "notes": "Field order scrambled in NL."}
+{"id": "sc-09", "user": "Can I get express for 8 of product 77?", "notes": "Question form."}
+{"id": "sc-10", "user": "Order: quantity 1, shipping standard, product 100000.", "notes": "Large product id."}
